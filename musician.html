@@ -79,40 +79,52 @@ function checkGuess()
     }
 }
     
-
+let n=0;
+const wrongguess =[];
 function endGame()
 {
     password=document.getElementById("element1").value
     guess=document.getElementById("element2").value
+    
+    
     if(password==guess)
     {
-        if(wrong>=3)
-        {
-            alert("Sorry, game over.")
-        }
-        else
-        {
+        
         correct++
         alert("You got it right")
         document.getElementById("result").innerHTML="Correct count:"+correct+" "+"Wrong count:"+wrong
-        }
+        n=n+1;
     }
     else
     {
-        if(wrong>=3)
-        {
-            alert("Sorry, game over.")
-        }
-        else
-        {
-        wrong++
-        alert("Wrong Musician")
-        document.getElementById("result").innerHTML="Correct count:"+correct+" "+"Wrong count:"+wrong
-        }
         
+        
+            wrong++;
+            wrongguess[n]=1;
+            n++;
+            alert("Wrong Musician")
+            document.getElementById("result").innerHTML="Correct count:"+correct+" "+"Wrong count:"+wrong
+            
+           if(n>=3)
+           {
+            for(let y=0;y<wrongguess.length;y++)
+            {
+            if(wrongguess[y]==1 && wrongguess[y+1]==1 && wrongguess[y+2]==1)
+            {
+                alert("Sorry, game over.")
+            }
+            }
+           }
+        
+            
     }
-    
+        
+        
+        
 }
+    
+    
+
 </script>
 
 </body>
