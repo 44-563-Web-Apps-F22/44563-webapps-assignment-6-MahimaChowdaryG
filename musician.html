@@ -17,7 +17,7 @@
     <label for="element2">Guess the musician</label>
     <input type="text" id="element2" name="element2"> <br>
 
-    <input type="button" onclick="checkGuess()" value="Check the guess"> 
+    <input type="button" onclick="endGame()" value="Check the guess"> 
 </form>
 <br>
 <div class="container">
@@ -67,6 +67,40 @@ function checkGuess()
         wrong++
         alert("Wrong Musician")
         document.getElementById("result").innerHTML="Correct count:"+correct+" "+"Wrong count:"+wrong
+    }
+}
+    
+
+function endGame()
+{
+    password=document.getElementById("element1").value
+    guess=document.getElementById("element2").value
+    if(password==guess)
+    {
+        if(wrong>=3)
+        {
+            alert("Sorry, game over.")
+        }
+        else
+        {
+        correct++
+        alert("You got it right")
+        document.getElementById("result").innerHTML="Correct count:"+correct+" "+"Wrong count:"+wrong
+        }
+    }
+    else
+    {
+        if(wrong>=3)
+        {
+            alert("Sorry, game over.")
+        }
+        else
+        {
+        wrong++
+        alert("Wrong Musician")
+        document.getElementById("result").innerHTML="Correct count:"+correct+" "+"Wrong count:"+wrong
+        }
+        
     }
     
 }
